@@ -2,6 +2,7 @@ import React from "react";
 import PokemonSelect from "./PokemonSelect";
 import PokemonCard from "./PokemonCard";
 import "./PokeDex.css";
+import { useAxios } from "./hooks";
 
 /* Renders a list of pokemon cards.
  * Can also add a new card at random,
@@ -20,9 +21,8 @@ function PokeDex() {
         <button onClick={clearPokemon}>Put All Pokemon in PC</button>
       </div>
       <div className="PokeDex-card-area">
-        {pokemon.map(cardData => (
-          <PokemonCard
-            key={cardData.id} {...card}/>
+        {pokemon.map(card => (
+          <PokemonCard key={card.id} {...card}/>
         ))}
       </div>
     </div>
